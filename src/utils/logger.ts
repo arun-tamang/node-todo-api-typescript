@@ -11,9 +11,6 @@ if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir);
 }
 
-/**
- * Create new winston logger instance.
- */
 const logger = new winston.Logger({
   transports: [
     new winston.transports.Console({
@@ -25,6 +22,8 @@ const logger = new winston.Logger({
       filename: `${logDir}/-debug.log`,
       timestamp: tsFormat,
       datePattern: 'yyyy-MM-dd',
+      zippedArchive: true,
+      maxDays: 5,
       prepend: true,
       level: logLevel
     })

@@ -8,7 +8,8 @@
     "migrate": "knex migrate:latest --knexfile src/knexfile.ts",
     "rollback": "knex migrate:rollback --knexfile src/knexfile.ts",
     "seed": "knex seed:run --knexfile src/knexfile.ts",
-    "start:dev": "nodemon"
+    "start": "nodemon",
+    "watch": "tsc --watch"
   },
   "dependencies": {
     "body-parser": "^1.17.2",

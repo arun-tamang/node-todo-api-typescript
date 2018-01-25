@@ -9,7 +9,7 @@ import { SearchQuery, TodoToPost } from '../types/todo';
 import { QueryBuilder } from 'knex';
 import { Collection } from 'bookshelf';
 
-export function getTodo(id: number, pageNo: number): Bluebird<Todo> {
+export function getTodo(id: any, pageNo: number): Bluebird<Todo> {
   return new Todo().query('where', 'user_id', '=', String(id))
     .orderBy('updated_at', 'DESC')
     .fetchPage({
