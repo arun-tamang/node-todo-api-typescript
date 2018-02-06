@@ -95,6 +95,16 @@ export function editTodo(todoId: number, newTitle: string): Bluebird<Todo> {
     });
 }
 
+export function setTodoCompleted(todoId: number, isCompleted: boolean): Bluebird<Todo> {
+  console.log('setTodocompleted', isCompleted);
+  return new Todo({id: todoId})
+    .save({completed: isCompleted})
+    .then((changedTodo: Todo) => {
+      changedTodo.refresh();
+      return changedTodo;
+    })
+}
+
 export async function deleteTodo(todoId: number): Promise<string> {
   // get array of tags of todo from linkerTable
   const tags: Collection<TodoTagLinker> = await linkerService.getTags(todoId);

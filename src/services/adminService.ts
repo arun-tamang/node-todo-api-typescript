@@ -42,7 +42,7 @@ export async function refreshAccessToken(token: string): Promise<string> {
     const decoded: any = tokenService.checkRefreshToken(token);
     return tokenService.fetchAccessToken(decoded.encryptedData);
   } catch {
-    throw Boom.notFound('refreshToken may have expired');
+    throw Boom.forbidden('refreshToken may have expired');
   }
   
 }

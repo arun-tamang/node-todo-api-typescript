@@ -18,7 +18,7 @@ export async function verifyRefreshToken(rfsToken: string): Bluebird<RfsToken> {
       // console.log('inside .then()');
       if (!refsToken) {
         // console.log('RefreshToken not found. Try again or login');
-        throw Boom.notFound('RefreshToken not found. Try again or login');
+        throw Boom.forbidden('RefreshToken not found. Try again or login');
       }
       return refsToken;
     });
@@ -37,7 +37,7 @@ export function verifyAcsToken(acsToken: string, userId: number): Promise<void> 
     .verifyAccessToken(acsToken)
     .then((data: any) => {
       if (Number(data.encryptedData) === userId) {
-        console.log('authorized');
+        // console.log('authorized');
         return;
       } else {
         throw new Error('unauthorized');
