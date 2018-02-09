@@ -3,9 +3,6 @@ import * as Bluebird from 'bluebird';
 import { Collection, Model } from 'bookshelf';
 import User from '../models/users';
 import * as HttpStatus from 'http-status-codes';
-import * as tokenService from './tokenService';
-import * as jwt from '../utils/jwt.js';
-import * as JWT from 'jsonwebtoken';
 import { UserToPost, UserLogin, ValidateUser } from '../types/user';
 
 export function getAllUsers(): Bluebird<Collection<User>> {

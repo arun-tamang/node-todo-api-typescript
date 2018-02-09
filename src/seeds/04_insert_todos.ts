@@ -11,16 +11,19 @@ exports.seed = (knex: Knex): Bluebird<any> => {
         {
           name: 'clean my car',
           user_id: 1,
+          category_id: 1,
           updated_at: new Date()
         },
         {
           name: 'go to the movie-theater',
           user_id: 2,
+          category_id: 1,
           updated_at: new Date()
         },
         {
           name: 'buy fruits',
           user_id: 2,
+          category_id: 2,
           updated_at: new Date()
         }
       ]);

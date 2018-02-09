@@ -5,6 +5,7 @@ import * as jwt from '../utils/jwt';
 import { findUser, userValidator } from '../validators/userValidator';
 import * as tokenValidator from '../validators/tokenValidator';
 import todoController from './todosController';
+import categoryController from './categories';
 import { Collection } from 'bookshelf';
 import User from '../models/users';
 
@@ -49,5 +50,8 @@ router.delete(
 
 // Handle requests for user todos.
 router.use('/:id/todo', todoController);
+
+// Handle requests for todoCategories.
+router.use('/:id/todoCategories', categoryController);
 
 export default router;

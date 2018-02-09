@@ -6,4 +6,7 @@ export interface SearchQuery {
 export interface TodoToPost {
   name: string;
   tagIds: number[];
+  categoryId: number;
+  expiresAt: any;
+  completed: false;
 }

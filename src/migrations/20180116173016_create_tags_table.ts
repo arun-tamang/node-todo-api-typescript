@@ -1,7 +1,9 @@
 import * as Knex from 'knex';
 
+const TABLE_NAME = 'tags';
+
 export function up(knex: Knex): Knex.SchemaBuilder {
-  return knex.schema.createTable('tags', table => {
+  return knex.schema.createTable(TABLE_NAME, table => {
     table.increments();
     table
       .string('name')
@@ -11,5 +13,5 @@ export function up(knex: Knex): Knex.SchemaBuilder {
 }
 
 export function down(knex: Knex): Knex.SchemaBuilder {
-  return knex.schema.dropTable('tags');
+  return knex.schema.dropTable(TABLE_NAME);
 }

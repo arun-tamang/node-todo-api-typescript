@@ -1,5 +1,6 @@
 import bookshelf from '../db';
 import Tags from './tags';
+import Category from './categories';
 import * as bookshelfjs from 'bookshelf';
 // import * as _ from 'lodash';
 
@@ -27,6 +28,10 @@ class Todo extends bookshelf.Model<Todo> {
 
   public tags(): bookshelfjs.Collection<Tags> {
     return this.belongsToMany(Tags);
+  }
+
+  public category() {
+    return this.belongsTo(Category);
   }
 }
 

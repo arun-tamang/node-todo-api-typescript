@@ -1,7 +1,9 @@
 import * as Knex from 'knex';
 
+const TABLE_NAME = 'users';
+
 exports.up = (knex: Knex): Knex.SchemaBuilder => {
-  return knex.schema.createTable('users', table => {
+  return knex.schema.createTable(TABLE_NAME, table => {
     table.increments('id').primary();
     table
       .timestamp('created_at')
@@ -22,5 +24,5 @@ exports.up = (knex: Knex): Knex.SchemaBuilder => {
 };
 
 exports.down = (knex: Knex): Knex.SchemaBuilder => {
-  return knex.schema.dropTable('users');
+  return knex.schema.dropTable(TABLE_NAME);
 };

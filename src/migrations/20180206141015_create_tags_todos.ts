@@ -1,8 +1,10 @@
 import * as Knex from 'knex';
 
+const TABLE_NAME = 'tags_todos';
+
 export function up(knex: Knex): Knex.SchemaBuilder {
   // the table: Knex.CreateTableBuilder is unnecessary here because table is not passed by us.
-  return knex.schema.createTable('tags_todos', (table: Knex.CreateTableBuilder) => {
+  return knex.schema.createTable(TABLE_NAME, (table: Knex.CreateTableBuilder) => {
     table.increments();
     table
       .integer('todo_id')
@@ -18,5 +20,5 @@ export function up(knex: Knex): Knex.SchemaBuilder {
 }
 
 export function down(knex: Knex): Knex.SchemaBuilder {
-  return knex.schema.dropTable('tags_todos');
+  return knex.schema.dropTable(TABLE_NAME);
 }

@@ -14,11 +14,11 @@ class User extends bookshelf.Model<User> {
   }
 
   public static getUserByEmail(email: string): BlueBird<User> {
-    return this.where('email', email).fetch();
+    return new this().where('email', email).fetch();
   }
 
   public static getUserByPassword(password: string): BlueBird<User> {
-    return this.where('password', password).fetch();
+    return new this().where('password', password).fetch();
   }
 }
 

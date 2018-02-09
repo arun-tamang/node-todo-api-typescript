@@ -76,8 +76,15 @@ export async function searchTodo(userId: number, queries: SearchQuery): Promise<
 export function createTodo(id: number, todo: TodoToPost): Bluebird<Todo> {
   // this actually adds new todo row and doesn't update any row in table.
   const tagIds: number[] = todo.tagIds;  // tagIds is array
+  console.log('tagIds from createTodo;', tagIds);
   return new Todo()
-    .save({ name: todo.name, user_id: id })
+    .save({
+      category_id: todo.categoryId,
+      expires_at: todo.expiresAt,
+      name: todo.name,
+      user_id: id,
+      completed: todo.completed
+    })
     .then((newTodo: Todo) => {
       newTodo.refresh();
       newTodo.tags().attach(tagIds);  // camelCase because of json data user sends.

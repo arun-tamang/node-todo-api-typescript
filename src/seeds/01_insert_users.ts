@@ -5,7 +5,7 @@ exports.seed = (knex: Knex): Bluebird<any> => {
   // Deletes ALL existing entries
   return knex
     .raw('TRUNCATE TABLE users RESTART IDENTITY CASCADE')
-    .then( () => {
+    .then(() => {
       // Inserts seed entries
       return knex('users').insert([
         {
@@ -16,8 +16,8 @@ exports.seed = (knex: Knex): Bluebird<any> => {
           updated_at: new Date()
         },
         {
-          first_name: 'John',
-          last_name: 'Doe',
+          first_name: 'Johnny',
+          last_name: 'Bravo',
           email: 'johnny@bravo.com',
           password: 'password2',
           updated_at: new Date()

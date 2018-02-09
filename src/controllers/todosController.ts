@@ -30,12 +30,12 @@ router.get('/:pageNo',
       .then((data: any) => {  // any is used because pagination can't be used with Model<Todo> bookshelf.
         res.json({ data, metadata: data.pagination });
       })
-      .catch(err => next(err));
+      .catch((err: any) => next(err));
   }
 );
 
 // add a new todo
-router.put(
+router.post(
   '/',
   tokenValidator.validateToken,
   findUserTodo,
