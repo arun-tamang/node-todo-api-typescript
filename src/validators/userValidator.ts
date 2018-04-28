@@ -6,18 +6,16 @@ import { Request, Response, NextFunction } from 'express';
 
 const SCHEMA = {
   firstName: Joi.string()
-    .label('firstName')
+    .alphanum()
     .max(90)
     .required(),
   lastName: Joi.string()
-    .label('lastName')
+    .alphanum()
     .max(90)
     .required(),
   email: Joi.string()
-    .label('email')
     .required(),
   password: Joi.string()
-    .label('Password')
     .required()
 };
 
